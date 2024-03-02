@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000; // Используйте одну переменную для порта
 const path = require('path');
 
 app.use(cors());
@@ -26,15 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Обработка запросов к корневому пути
 app.get('/', (req, res) => {
- res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Запуск сервера
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
- console.log(`Server is running on port ${PORT}`);
-});
-
+// Запросы к базе данных
 app.get('/products', (req, res) => {
     const sql = "SELECT * FROM products";
     conn.query(sql, (err, results) => {
@@ -45,20 +40,6 @@ app.get('/products', (req, res) => {
             res.json(results); // Отправка списка товаров в формате JSON
         }
     });
-});
-let query = "SELECT * FROM users";
-conn.query(query, (err, result, field) => {
-    if (err) {
-        console.log(err);
-    } else {
-        // Проверяем, что результаты существуют и содержат хотя бы одну строку
-        if (result && result.length > 0) {
-            // Теперь безопасно обращаемся к result[1]['username']
-            console.log(result[1]['username']);
-        } else {
-            console.log('No results found');
-        }
-    }
 });
 
 app.get('/users', (req, res) => {
@@ -71,9 +52,9 @@ app.get('/users', (req, res) => {
             res.json(results); // Отправка списка пользователей в формате JSON
         }
     });
-    
 });
 
+// Запуск сервера
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });
