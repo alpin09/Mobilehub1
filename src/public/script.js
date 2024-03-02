@@ -237,23 +237,6 @@ showMore.addEventListener('click', ()=>{
     }
 })
 
-// fetch('http://localhost:3000/users')
-//   .then(response => response.json())
-//   .then(users => {
-//     const usersContainer = document.getElementById('users-container');
-//     users.forEach(user => {
-//       const userCard = document.createElement('div');
-//       userCard.className = 'user-card';
-//      userCard.innerHTML = `
-//      <a href="product.html" class="card-name"><p>${user.username}</p></a>
-//      <p class="card-price">${user.surname}</p>`;
-  
-//       usersContainer.appendChild(userCard);
-//     });
-//   })
-//   .catch(error => {
-//     console.error('Ошибка при получении данных о пользователях:', error);
-//   });
 
 document.addEventListener('DOMContentLoaded', function() {
     // Проверяем, есть ли уже кэшированные данные пользователей
@@ -263,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayUsers(JSON.parse(cachedUsers));
     } else {
       // Если данных нет, делаем запрос к серверу
-      fetch('http://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/users')
+      fetch('https://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/users')
         .then(response => response.json())
         .then(users => {
           // Сохраняем данные в кэш
@@ -312,7 +295,7 @@ const searchInput = document.querySelector("[data-product-search]");
       });
   });
   
-  fetch('http://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/products')
+  fetch('https://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/products')
  .then(res => res.json())
  .then(data => {
     products = data.map(product => {
