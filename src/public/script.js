@@ -295,7 +295,7 @@ const searchInput = document.querySelector("[data-product-search]");
       });
   });
   
-  fetch('https://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com')
+  fetch('https://mobilehub-w4eu.onrender.com/products')
  .then(res => res.json())
  .then(data => {
     products = data.map(product => {
