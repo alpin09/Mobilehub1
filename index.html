@@ -165,56 +165,12 @@
         
         <div class="cards-grid2">
 
-
-                    <!-- <div class="search-grid">
-                    <div class="searchbar">
-                    <form action="" method="get">
-                        <input type="text" name="search?" placeholder="Search" class="search-input" aria-label="search input">
-                        <button type="submit"><span class="search-icon material-symbols-outlined"aria-label="activeate search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            </span></button>
-                    </form>  
-                    </div> 
-                    <form action="" method="get" role="search" aria-label="searchbar">
-                        <div class="select-drop">
-                            <label for="price">Sort by price:</label>
-                            <hr>
-                            <select id="price" name="price" aria-label="select price" >
-                                <option value="select" selected>Select</option>
-                                <option value="500-1000">500-1000</option>
-                                <option value="1000-2000">1000-2000</option>
-                                <option value="2000-5000">2000-5000</option>
-                                <option value="5000-10000">5000-10000</option>
-                            </select>
-                        
-                            <label for="manufacturer">Sort by manufacturer:</label>
-                            <hr>
-                            <select id="manufacturer" name="manufacturer" aria-label="select manufacturer" >
-                                <option value="select" selected>Select</option>
-                                <option value="Xiaomi">Xiaomi</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Samsung">Samsung</option>
-                                <option value="Motorola">Motorola</option>
-                            </select>
-                        
-                            <label for="rating">Sort by rating:</label>
-                            <hr>
-                            <select id="rating" name="rating" aria-label="select rating" >
-                                <option value="select" selected>Select</option>
-                                <option value="1-3">1-3</option>
-                                <option value="3-4">3-4</option>
-                                <option value="4-5">4-5</option>
-                            </select>
-                        </div>
-                    </form>
-                          </div>  -->
-            
             
                     <div class="card card-show all phones android xiaomi">
                         <a href="product.html" > <div class="card-img">
-                            <img src="img/apple1-min.webp" alt="Product Image">
+                            <img src="https://mobilehub-img.s3.eu-north-1.amazonaws.com/apple1.jpg" alt="Product Image">
                             <video class="hover-video" autoplay played loop muted playsinline>
-                                <source src="img/xiaomi2.mp4" type="video/mp4">
+                                <source src="https://mobilehub-img.s3.eu-north-1.amazonaws.com/apple.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div></a>
@@ -428,13 +384,13 @@
             <section class="card-section">
 
 <!-- Вторая половина -->
-<div class="cards-grid" data-user-cards-container>
+<div class="cards-grid" data-product-cards-container>
 
 
         <div class="search-grid">
         <div class="searchbar">
         <form action="" method="get">
-            <input type="search" id="search" data-search name="search?" placeholder="Search" class="search-input" aria-label="search input">
+            <input type="search" id="search" data-product-search name="search?" placeholder="Search" class="search-input" aria-label="search input">
             <button type="submit"><span class="search-icon material-symbols-outlined"aria-label="activeate search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 </span></button>
@@ -477,17 +433,22 @@
 
         <!-- Здесь был старый код товаров -->
         
-        <template data-user-template>
+        <template data-product-template>
             <div class="card">
                 <a href="product.html" ><div class="card-img">
-                    <img src="img/apple1-min.webp" alt="Product Image">
+                    <img src="" alt="Product Image" data-photo-url>
+                    <video class="hover-video" autoplay played loop muted playsinline>
+                        <source src="" type="video/mp4" data-video-url>
+                        Your browser does not support the video tag.
+                    </video>
                 </div></a>
                 <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
                 <a href="product.html" class="card_name"><p>data-header</p></a>
                 <p class="card_price">data-body</p>
                 <button class="card-btn" onclick="addToCart('Apple iPad Air (2022), 64GB Wi-Fi Pink', '17490 CZK')" aria-label="add product to cart"> Add to cart</button>
-              </div>
+            </div>
         </template>
+        
 
 
        <!-- <button class="btn-more">Show more</button> -->

@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayUsers(JSON.parse(cachedUsers));
     } else {
       // Если данных нет, делаем запрос к серверу
-      fetch('http://localhost:3000/users')
+      fetch('http://localhost:3001/users')
         .then(response => response.json())
         .then(users => {
           // Сохраняем данные в кэш
@@ -294,36 +294,47 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
     
-  const userCardTemplate = document.querySelector("[data-user-template]");
-  const userCardContainer = document.querySelector("[data-user-cards-container]");
-  const searchInput = document.querySelector("[data-search]");
+//   const userCardTemplate = document.querySelector("[data-user-template]");
+//   const userCardContainer = document.querySelector("[data-user-cards-container]");
+//   const searchInput = document.querySelector("[data-search]");
+const userCardTemplate = document.querySelector("[data-product-template]");
+const userCardContainer = document.querySelector("[data-product-cards-container]");
+const searchInput = document.querySelector("[data-product-search]");
+
   
-  let users = []; // Исправлено на users
+  let products = []; // Изменено на products
   
   searchInput.addEventListener("input", e => {
-      const value = e.target.value.toLowerCase(); // Добавлено преобразование в нижний регистр для корректной фильтрации
-      users.forEach(user => {
-          const isVisible = user.name.toLowerCase().includes(value) || user.surname.toLowerCase().includes(value); // Добавлено преобразование в нижний регистр для корректной фильтрации
-          user.element.classList.toggle("hide", !isVisible);
+      const value = e.target.value.toLowerCase();
+      products.forEach(product => { // Изменено на products
+          const isVisible = product.name.toLowerCase().includes(value) || product.price.toLowerCase().includes(value);
+          product.element.classList.toggle("hide", !isVisible);
       });
   });
   
-  fetch('http://localhost:3000/users')
-    .then(res => res.json())
-    .then(data => {
-      users = data.map(user => { // Исправлено на users
+  fetch('http://localhost:3001/products')
+ .then(res => res.json())
+ .then(data => {
+    products = data.map(product => {
         const cardItem = userCardTemplate.content.cloneNode(true).children[0];
         const card_name = cardItem.querySelector(".card_name");
         const card_price = cardItem.querySelector(".card_price");
-        card_name.textContent = user.username; // Исправлено на user.username
-        card_price.textContent = user.surname; // Исправлено на user.surname
+        const card_img = cardItem.querySelector("[data-photo-url]");
+        const card_video = cardItem.querySelector("[data-video-url]");
+
+        card_name.textContent = product.name;
+        card_price.textContent = product.price;
+        card_img.src = product.image_url; // Убедитесь, что product.photo_url корректно указывает на изображение
+        card_video.src = product.video_url; // Убедитесь, что product.video_url корректно указывает на видео
+
         userCardContainer.append(cardItem);
-        return {name: user.username, surname: user.surname, element: cardItem}; // Исправлено на user.username и user.surname
-      });
-    })
-    .catch(error => {
-      console.error('Ошибка при получении данных о пользователях:', error);
+        return {name: product.name, price: product.price, element: cardItem};
     });
+})
+.catch(error => {
+    console.error('Ошибка при получении данных о товарах:', error);
+});
+
   
   //   userCard.innerHTML = `
     //     <div class="user-info">
