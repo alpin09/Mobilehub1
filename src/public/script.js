@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayUsers(JSON.parse(cachedUsers));
     } else {
       // Если данных нет, делаем запрос к серверу
-      fetch('http://localhost:3001/users')
+      fetch('http://localhost:10000/users')
         .then(response => response.json())
         .then(users => {
           // Сохраняем данные в кэш
@@ -312,7 +312,7 @@ const searchInput = document.querySelector("[data-product-search]");
       });
   });
   
-  fetch('http://localhost:3001/products')
+  fetch('http://localhost:10000/products')
  .then(res => res.json())
  .then(data => {
     products = data.map(product => {
