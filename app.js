@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3001;
+const path = require('path');
 
 app.use(cors());
 
@@ -21,6 +22,19 @@ conn.connect(err => {
     }
 });
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Обработка запросов к корневому пути
+app.get('/', (req, res) => {
+ res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Запуск сервера
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+ console.log(`Server is running on port ${PORT}`);
+});
+
 app.get('/products', (req, res) => {
     const sql = "SELECT * FROM products";
     conn.query(sql, (err, results) => {
@@ -32,7 +46,6 @@ app.get('/products', (req, res) => {
         }
     });
 });
-
 let query = "SELECT * FROM users";
 conn.query(query, (err, result, field) => {
     if (err) {
@@ -48,7 +61,6 @@ conn.query(query, (err, result, field) => {
     }
 });
 
-
 app.get('/users', (req, res) => {
     const sql = "SELECT * FROM users";
     conn.query(sql, (err, results) => {
@@ -59,6 +71,7 @@ app.get('/users', (req, res) => {
             res.json(results); // Отправка списка пользователей в формате JSON
         }
     });
+    
 });
 
 app.listen(port, () => {
