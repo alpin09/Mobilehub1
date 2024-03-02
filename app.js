@@ -33,6 +33,22 @@ app.get('/products', (req, res) => {
     });
 });
 
+let query = "SELECT * FROM users";
+conn.query(query, (err, result, field) => {
+    if (err) {
+        console.log(err);
+    } else {
+        // Проверяем, что результаты существуют и содержат хотя бы одну строку
+        if (result && result.length > 0) {
+            // Теперь безопасно обращаемся к result[1]['username']
+            console.log(result[1]['username']);
+        } else {
+            console.log('No results found');
+        }
+    }
+});
+
+
 app.get('/users', (req, res) => {
     const sql = "SELECT * FROM users";
     conn.query(sql, (err, results) => {
