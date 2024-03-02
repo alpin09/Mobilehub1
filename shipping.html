@@ -16,14 +16,14 @@
             <div class="logo-img"><a href="index.html">
             <img src="img/logo.jpg" alt="Link Image">
           </a></div>
-          <a href="index.html" style="margin-left: 70px;">Mobilehub</a></div>
+          <a href="index.html" style="margin-left: 70px;" aria-label="home page">Mobilehub</a></div>
 
         <!-- Search bar -->
         <div class="search">
             <div class="search_bar">
                 <div class="icon"></div>
                 <div class="input">
-                    <input type="text" placeholder="Search" id="w_search">
+                    <input type="text" placeholder="Search" id="w_search" aria-label="search bar">
                 </div>
                 <span class="clear" onclick="document.getElementById('w_search').value =''"></span>
             </div>
@@ -32,13 +32,13 @@
         <div class="nav-menu">
         
             <li><div class="dropdown" data-dropdown>
-                <button class="link" data-dropdown-button style="color: #C2C3E4;">Cart <i class="fa-solid fa-caret-down fa-sm"></i></button>
+                <button class="link" data-dropdown-button style="color: #C2C3E4;" aria-label="cart">Cart <i class="fa-solid fa-caret-down fa-sm"></i></button>
                 <div class=" ultra-drop">
             
                 <div id="cart">
                     <h2>Cart</h2>
                     <ul id="cartItems"></ul>
-                    <button class="cart-btn" onclick="clearCart()">Clear cart</button>
+                    <button class="cart-btn" aria-label="clear cart" onclick="clearCart()">Clear cart</button>
                 </div>
                 </div> 
             </div>
@@ -49,72 +49,65 @@
         </div>
         <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
     </nav>
-  <div class="order">
-    <h3>Personal data <i class="fa-solid fa-arrow-right"></i> Address <i class="fa-solid fa-arrow-right"></i> Purchase</h3>
-  </div>
+    <div class="order">
+        <h3><a href="cart.html" style="text-decoration: none; color: black;">Cart</a> <i class="fa-solid fa-arrow-right"></i> <a href="shippingoptions.html" style="text-decoration: none; color: black;">Shipping options</a> <i class="fa-solid fa-arrow-right"></i> <a href="shipping.html" style="text-decoration: none; color: #9293C9;">Purchase</a></h3>
+      </div>
   <div class="process">
-    <div class="product-info">
-        <img src="img/xiaomi.jpg"><div class="text">
-        <h2>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</h2>
-        <br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-        <br>
-        <p>Price: 3200 CZK</p>
-        <p>Extendet warranty: 0</p>
-        <p>Total cost: 3200</p>
-        </div>
-    </div>
+    <article><h1 style="margin-bottom: 20px;">Please enter your personal information to complite the purchase</h1></article>
    <div class="personal-data">
     <h1 style="margin-left: 50px; margin-bottom: 20px;">Personal data</h1>
-    <form class="form-container" id="myForm">
-        <input type="text" id="firstName" name="firstName" placeholder="Name" required>
+    <form class="form-container" id="myForm" role="personal data">
+        <input type="text" id="firstName" name="firstName" placeholder="Name" aria-label="input your name" required>
     
-        <input type="text" id="lastName" name="lastName" placeholder="Surname" required>
+        <input type="text" id="lastName" name="lastName" placeholder="Surname"aria-label="input your suraname" required>
     
-        <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" required>
+        <input type="email" id="email" name="email" placeholder="Email" autocomplete="off"aria-label="input your email" required>
     
-        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number" pattern="[0-9]+" required>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number" aria-label="input your phone number"pattern="[0-9]+" required>
         </form>
 
         <h1 style="margin-left: 50px; margin-bottom: 20px; margin-top: 40px;">Address</h1>
-        <form class="form-container" id="myForm">
-        <input type="text" id="City" name="City" placeholder="City" required>
+        <form class="form-container" id="myForm" role="personal data">
+        <input type="text" id="City" name="City" placeholder="City" aria-label="input your city" required>
     
-        <input type="text" id="Street" name="Street" placeholder="Street" required>
+        <input type="text" id="Street" name="Street" placeholder="Street" aria-label="input your street" required>
     
-        <input type="number" id="Zip code" name="Zip code" placeholder="Zip code" required>
+        <input type="number" id="Zip code" name="Zip code" placeholder="Zip code" aria-label="input your zip code" required>
     </form>
     <h1 style="margin-left: 50px;margin-top: 40px; margin-bottom: 20px;">Credit card data</h1>
     <form class="form-container" id="myForm">
-    <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required>
+    <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" aria-label="input your card number" required>
 
-    <input type="text" id="cardHolder" name="cardHolder" placeholder="Enter cardholder's name" required>
+    <input type="text" id="cardHolder" name="cardHolder" placeholder="Enter cardholder's name" aria-label="Enter cardholder's name" required>
 
-    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YYYY" required>
+    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YYYY" aria-label="input expiration Date" required>
 
-    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required>
+    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" aria-label="input CVV" required>
         </form>
 
     </div>
+    <div class="ship-option-btn" ><a class="shipo-prev"  aria-label="Back to shipping options" href="shippingoptions.html"><i class="fa-solid fa-arrow-left"></i> Back to shipping options</a>
+        <button class="shipo-next" role="complite the order" data-modal-target="#modal" >Complete the order</button>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Congrats on purchase</div><button data-close-button class="close-btn" role="close" aria-label="close message">&times;</button>
+        </div>
+        <div class="modal-body" aria-label="Purchase message">
+            <article>
+                <p>Your order has been confirmed, and you have successfully purchased the phone.</p>
+                <p>Please wait for the delivery of your new device. We strive to process and dispatch orders as quickly as possible.</p>
+                <p>If you have any questions or concerns regarding your order, feel free to <a href="#">contact us</a>.</p>
+            </article>
+        </div>
+    </div>
+    <div  id="overlay"></div>
   </div> 
-  </div>
-  <div class="aside-data">
-        <aside>
-            <p style="margin-top: 10px;">Purchase</p>
-            <p>Price: 3200 CZK</p>
-        <p style="margin-bottom: 10px;">Extendet warranty: 0</p>
-        <p style="color: green;">Total cost: 3200</p>
-        <div class="aside-check">
-            <input type="checkbox" id="scales" name="scales" form="myForm" required />
-            <label for="scales" style="font-size: 20px; padding-right: 5px;">I agree to the terms and conditions</label>
-          </div>
-        <input class="aside-btn" type="submit" value="Buy" form="myForm"/>
-      </aside>
   </div>
   
    
         <footer>
-          <a href="#" style="font-size: 20px;">@Mobilehub</a>
+          <article class="footer-text">Mobilehub is a study project by: Mustafaev Vasilii; Yelaman Nurdauletov; Orynbayev Bauyrzhan</article>
       </footer>
           <script src="script.js"></script>
   </body>

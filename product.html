@@ -16,14 +16,14 @@
         <div class="logo-img"><a href="index.html">
         <img src="img/logo.jpg" alt="Link Image">
       </a></div>
-      <a href="index.html" style="margin-left: 70px;">Mobilehub</a></div>
+      <a href="index.html" style="margin-left: 70px;" aria-label="home page">Mobilehub</a></div>
 
     <!-- Search bar -->
     <div class="search">
         <div class="search_bar">
             <div class="icon"></div>
             <div class="input">
-                <input type="text" placeholder="Search" id="w_search">
+                <input type="text" placeholder="Search" id="w_search" aria-label="search bar">
             </div>
             <span class="clear" onclick="document.getElementById('w_search').value =''"></span>
         </div>
@@ -32,13 +32,13 @@
     <div class="nav-menu">
     
         <li><div class="dropdown" data-dropdown>
-            <button class="link" data-dropdown-button style="color: #C2C3E4;">Cart <i class="fa-solid fa-caret-down fa-sm"></i></button>
+            <button class="link" data-dropdown-button style="color: #C2C3E4;" aria-label="cart">Cart <i class="fa-solid fa-caret-down fa-sm"></i></button>
             <div class=" ultra-drop">
         
             <div id="cart">
                 <h2>Cart</h2>
                 <ul id="cartItems"></ul>
-                <button class="cart-btn" onclick="clearCart()">Clear cart</button>
+                <button class="cart-btn" aria-label="clear cart" onclick="clearCart()">Clear cart</button>
             </div>
             </div> 
         </div>
@@ -51,7 +51,7 @@
 </nav>
     
     <div class = "card-wrapper">
-      <div class = "card-slide">
+      <div class = "card-slide" role="card slider">
         <!-- card left -->
         <div class = "product-imgs">
           <div class = "img-display">
@@ -66,31 +66,32 @@
           <div class = "img-select">
             <div class = "img-item">
               <a href = "#" data-id = "1">
-                <img src = "img/xiaomi.jpg" alt = "phone image">
+                <img src = "img/xiaomi.jpg" alt = "phone image" aria-label="phone image 1" >
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "2">
-                <img src = "img/xiaomi-2.jpg" alt = "phone image">
+                <img src = "img/xiaomi-2.jpg" alt = "phone image" aria-label="phone image 2">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "3">
-                <img src = "img/xiaomi-3.jpg" alt = "phone image">
+                <img src = "img/xiaomi-3.jpg" alt = "phone image" aria-label="phone image 3">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "4">
-                <img src = "img/xiaomi-4.jpg" alt = "phone image">
+                <img src = "img/xiaomi-4.jpg" alt = "phone image" aria-label="phone image 4">
               </a>
             </div>
             <div class = "img-item">
               <a href = "#" data-id = "5">
-                <img src = "img/xiaomi-5.jpg" alt = "phone image">
+                <img src = "img/xiaomi-5.jpg" alt = "phone image" aria-label="phone image 5">
               </a>
             </div>
           </div>
         </div>
+        
         <!-- card right -->
         <div class = "product-content">
           <h2 class = "product-title">Xiaomi Redmi A2 3GB / 64GB Black Smartphone</h2>
@@ -108,6 +109,7 @@
           </div>
           <br>
           <div class = "product-detail">
+            <article role="item info">
             <h2>About this item: </h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
@@ -116,14 +118,15 @@
               <li>Available: <span>in stock</span></li>
               <li>Category: <span>Phones; Xiaomi</span></li>
             </ul>
-            <button class="card-btn product-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+            </article>
+            <button class="card-btn product-btn" role="button" aria-label="add to cart button"  onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- User reviews -->
-    <div class="comment-container">
+    <div class="comment-container" role="user comments">
       <H1 style="margin-left: 40px;">User reviews</H1>
       <div class="comment">
         <div class="avatar"><img src="https://placekitten.com/150/150" alt="user-avatar"></div>
@@ -133,7 +136,7 @@
       <p class="comm-date">22.12.2023</p>
       <p class="comm-date2">Robert Walker 22.12.2023</p>
       <div class="rating comm-rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 </div>
-      <div class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</div>
+      <article class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</article>
     </div>
     </div>
 
@@ -145,7 +148,7 @@
       <p class="comm-date">22.12.2023</p>
       <p class="comm-date2">Robert Walker 22.12.2023</p>
       <div class="rating comm-rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 4 </div>
-      <div class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</div>
+      <article class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</article>
     </div>
     </div>
       <div class="comment">
@@ -156,51 +159,50 @@
       <p class="comm-date">22.12.2023</p>
       <p class="comm-date2">Robert Walker 22.12.2023</p>
       <div class="rating comm-rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 4 </div>
-      <div class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</div>
+      <article class="comm-lorem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, iusto. Nesciunt expedita dolore provident eius eligendi voluptate amet esse fuga!</article>
     </div>
     </div>
 
     </div>
         <!-- flex simular items -->
-      <section class="section-similar">
-          <body>
+      <section class="section-similar" role="similar items section">
           <h1 style="margin: 0 0 20px 80px;">Simular products</h1>
           
           <div class="flex-container">
-            <div class="card">
+            <div class="card" aria-label="product">
               <a href="product.html" ><img class="card-img" src="img/xiaomi.jpg" alt="" /></a>
               <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
               <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
               <p class="card-price">2900 CZK</p>
-              <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+              <button class="card-btn" aria-label="add product to cart" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
           </div>
-          <div class="card">
+          <div class="card" aria-label="product">
             <a href="product.html" ><img class="card-img" src="img/xiaomi.jpg" alt="" /></a>
             <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
             <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
             <p class="card-price">2900 CZK</p>
-            <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+            <button class="card-btn" aria-label="add product to cart" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
         </div>
-        <div class="card">
+        <div class="card" aria-label="product">
           <a href="product.html" ><img class="card-img" src="img/xiaomi.jpg" alt="" /></a>
           <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
           <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
           <p class="card-price">2900 CZK</p>
-          <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+          <button class="card-btn" aria-label="add product to cart" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
       </div>
-      <div class="card">
+      <div class="card" aria-label="product">
         <a href="product.html" ><img class="card-img" src="img/xiaomi.jpg" alt="" /></a>
         <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
         <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
         <p class="card-price">2900 CZK</p>
-        <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+        <button class="card-btn" aria-label="add product to cart" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
     </div>
-      <div class="card">
+      <div class="card" aria-label="product">
         <a href="product.html" ><img class="card-img" src="img/xiaomi.jpg" alt="" /></a>
         <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
         <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
         <p class="card-price">2900 CZK</p>
-        <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
+        <button class="card-btn" aria-label="add product to cart" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')"> Add to cart</button>
     </div>
           </div>
       </section>
@@ -208,7 +210,7 @@
     
    
         <footer>
-          <a href="#" style="font-size: 20px;">@Mobilehub</a>
+          <article class="footer-text">Mobilehub is a study project by: Mustafaev Vasilii; Yelaman Nurdauletov; Orynbayev Bauyrzhan</article>
       </footer>
             
           <script src="script.js"></script>

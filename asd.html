@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Slider with Embedded Videos</title>
+  <!-- Link Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    /* Стили для скрытия карточек товаров */
+.product-card.hidden {
+    display: none;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="product-card">Товар 1</div>
+  <div class="product-card">Товар 2</div>
+  <div class="product-card">Товар 3</div>
+  <button id="showMoreButton">Показать больше</button>
+  
+  <!-- Swiper JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var showMoreButton = document.getElementById("showMoreButton");
+    var productCards = document.querySelectorAll(".product-card");
+    var hiddenCards = Array.prototype.slice.call(productCards, 3); // Скрываем все карточки, начиная с четвертой
+
+    // Функция, скрывающая или отображающая скрытые карточки товаров
+    function toggleHiddenCards() {
+        hiddenCards.forEach(function(card) {
+            card.classList.toggle("hidden");
+        });
+    }
+
+    // Обработчик события нажатия на кнопку "Показать больше"
+    showMoreButton.addEventListener("click", function() {
+        toggleHiddenCards();
+        // Изменяем текст кнопки в зависимости от состояния скрытых карточек
+        if (showMoreButton.textContent === "Показать больше") {
+            showMoreButton.textContent = "Скрыть";
+        } else {
+            showMoreButton.textContent = "Показать больше";
+        }
+    });
+});
+
+  </script>
+</body>
+</html>
+
+
+
+
+<div class="card all phones android xiaomi">
+  <a href="product.html" > <div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class = "fas fa-star-half-alt"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i> 3.5 (21)</div>
+  <div class="user-card" data-index="1"></div>
+  <!-- <a href="product.html" class="card-name"><p>Xiaomi Redmi A2 3GB / 64GB Black Smartphone</p></a>
+  <p class="card-price">2900 CZK</p> -->
+  <button class="card-btn" onclick="addToCart('Xiaomi Redmi A2 3GB / 64GB Black Smartphone', '2900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+
+<div class="card all phones android samsung">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/fold.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Samsung Galaxy Z Flip4 5G, 8GB/128GB Gold</p></a>
+  <p class="card-price">4900 CZK</p>
+  <button class="card-btn" onclick="addToCart('Samsung Galaxy Z Flip4 5G, 8GB/128GB Gold', '4900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+
+<div class="card all phones ios apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/apple.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple iPhone 14, 128GB Midnight</p></a>
+  <p class="card-price">5000 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple iPhone 14, 128GB Midnight', '5000 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+
+<div class="card all phones ios apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/apple2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple iPhone 15 Pro, 256GB blue titanium</p></a>
+  <p class="card-price">6900 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple iPhone 15 Pro, 256GB blue titanium', '6900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all accessories">
+  <a href="product.html" ><img class="card-img" src="img/power.jpg" alt="" /></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Powerbank Xiaomi 20000mAh Redmi 18W</p></a>
+  <p class="card-price">900 CZK</p>
+  <button class="card-btn" onclick="addToCart('Powerbank Xiaomi 20000mAh Redmi 18W', '900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all phones android xiaomi">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Xiaomi 13T Pro mobile phone, 12GB/512GB Black</p></a>
+  <p class="card-price">4500 CZK</p>
+  <button class="card-btn" onclick="addToCart('Xiaomi 13T Pro mobile phone, 12GB/512GB Black', '4500 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all phones android samsung">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i><i class="fa-sharp fa-regular fa-star" style="color: #000000;"></i></i> 3 (18)</div>
+  <a href="product.html" class="card-name"><p>Samsung Galaxy S23, 8GB/256GB Cream</p></a>
+  <p class="card-price">7900 CZK</p>
+  <button class="card-btn" onclick="addToCart('Samsung Galaxy S23, 8GB/256GB Cream', '7900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all phones android motorola">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/fold.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Motorola Moto G54 5G Power Edition, 12GB</p></a>
+  <p class="card-price">7900 CZK</p>
+  <button class="card-btn" onclick="addToCart('Motorola Moto G54 5G Power Edition, 12GB', '7900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all phones ios apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/apple2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple iPhone 15 Pro, 128GB white titanium</p></a>
+  <p class="card-price">1700 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple iPhone 15 Pro, 128GB white titanium', '17900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all audio apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/apple.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple AirPods 2 headphones</p></a>
+  <p class="card-price">2800 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple AirPods 2 headphones', '2800 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all phones android motorola">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Motorola Moto G54 5G Power Edition 12GB Pearl</p></a>
+  <p class="card-price">9000 CZK</p>
+  <button class="card-btn" onclick="addToCart('Motorola Moto G54 5G Power Edition 12GB/256GB Pearl Blue', '9000 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all audio ">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>BOSE QuietComfort Ultra Headphones white</p></a>
+  <p class="card-price">3900 CZK</p>
+  <button class="card-btn" onclick="addToCart('BOSE QuietComfort Ultra Headphones white', '3900 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all ios tablet apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/ipad.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple iPad Air (2022), 64GB Wi-Fi Pink</p></a>
+  <p class="card-price">17490 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple iPad Air (2022), 64GB Wi-Fi Pink', '17490 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all audio">
+  <a href="product.html" ><img class="card-img" src="img/apple1-min.webp" alt="" /></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Bang & Olufsen BeoPlay HX Black</p></a>
+  <p class="card-price">9490 CZK</p>
+  <button class="card-btn" onclick="addToCart('Bang & Olufsen BeoPlay HX Black', '9490 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all ios tablet apple">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/ipad.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Apple iPad Air (2022), 64GB Wi-Fi Blue</p></a>
+  <p class="card-price">17590 CZK</p>
+  <button class="card-btn" onclick="addToCart('Apple iPad Air (2022), 64GB Wi-Fi Blue', '17590 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>
+<div class="card all accessories">
+  <a href="product.html" ><div class="card-img">
+      <img src="img/apple1-min.webp" alt="Product Image">
+      <video class="hover-video" autoplay played loop muted playsinline>
+          <source src="img/xiaomi2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div></a>
+  <div class="rating"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i> 5 (18)</div>
+  <a href="product.html" class="card-name"><p>Powerbank Spello 24,000mAh solar powerbank black/orange</p></a>
+  <p class="card-price">1700 CZK</p>
+  <button class="card-btn" onclick="addToCart('Powerbank Spello 24,000mAh solar powerbank black/orange', '1700 CZK')" aria-label="add product to cart"> Add to cart</button>
+</div>

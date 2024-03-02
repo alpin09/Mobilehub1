@@ -31,54 +31,44 @@ function changeText(){
 
 // CART
 function addToCart(productName, price) {
-    // Получаем текущий список товаров из Local Storage
     var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Добавляем новый товар
     var newItem = { productName: productName, price: price };
     cartItems.push(newItem);
 
-    // Сохраняем обновленный список товаров в Local Storage
     localStorage.setItem('cart', JSON.stringify(cartItems));
 
-    // Обновляем отображение корзины
     updateCartDisplay();
 }
 
-// Функция обновления отображения корзины
 function updateCartDisplay() {
     var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     var cartList = document.getElementById('cartItems');
 
-    // Очищаем текущее отображение корзины
     cartList.innerHTML = '';
 
     
 
-    // Добавляем каждый товар Add to cart в список
     cartItems.forEach(function(item) {
         var li = document.createElement('li');
 
         // Создаем ссылку
         var link = document.createElement('a');
-        link.href = 'shipping.html'; // Здесь вы можете установить ссылку на страницу товара или другую нужную вам ссылку
+        link.href = 'cart.html';  
         link.textContent = item.productName + ' - ' + item.price;
 
-        // Добавляем ссылку в элемент списка
+        // Добавляем ссылку в элемнт списка
         li.appendChild(link);
 
-        // Добавляем элемент списка Add to cart
         cartList.appendChild(li);
     });
     
 
 }
 function clearCart() {
-        // Очищаем Local Storage и обновляем отображение корзины
         localStorage.removeItem('cart');
         updateCartDisplay();
     }
-// Вызываем updateCartDisplay() при загрузке страницы
 updateCartDisplay();
 
 // CATEGORY DISPLAY
@@ -138,33 +128,219 @@ if (document.querySelector('.container')) {
     const sliderLine = document.querySelector('.slider-line');
     let count = 0;
     let width;
-    
-    function init(){
+
+    function init() {
         width = document.querySelector('.slider').offsetWidth;
-        sliderLine.style.width = width*images.length+'px';
-        images.forEach(item=>{
-            item.style.width = width+'px';
+
+        if (images.length === 0) {
+            return;
+        }
+
+        sliderLine.style.width = width * images.length + 'px';
+        images.forEach(item => {
+            item.style.width = width + 'px';
             item.style.height = 'auto';
         });
         rollSlider();
     }
+
     window.addEventListener('resize', init);
     init();
-    document.querySelector('.slider-next').addEventListener('click', function(){
+
+    document.querySelector('.slider-next').addEventListener('click', function () {
         count++;
-        if(count>=images.length){
+        if (count >= images.length) {
             count = 0;
         }
         rollSlider();
     });
-    document.querySelector('.slider-prev').addEventListener('click', function(){
+
+    document.querySelector('.slider-prev').addEventListener('click', function () {
         count--;
-        if(count<0){
+        if (count < 0) {
             count = images.length - 1;
         }
         rollSlider();
     });
-    function rollSlider(){
-        sliderLine.style.transform='translate(-'+count*width+'px)';
+
+    function rollSlider() {
+        sliderLine.style.transform = 'translate(-' + count * width + 'px)';
     }
 }
+
+// COUNTER
+function updateCounter(counterId, value) {
+    const counterElement = document.getElementById(counterId);
+    let currentValue = parseInt(counterElement.innerText, 10);
+    let newValue = currentValue + value;
+
+    newValue = Math.max(newValue, 0);
+
+    counterElement.innerText = newValue;
+  }
+//   RADIO INPUT
+  function activateRadio(radioId) {
+    const radioElement = document.getElementById(radioId);
+    radioElement.checked = true;
+  }
+//   Complete the order
+if (document.querySelector('.modal')){
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const ovelay = document.getElementById('overlay')
+
+openModalButtons.forEach(button=>{
+    button.addEventListener('click', ()=>{
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+    })
+})
+
+overlay.addEventListener('click', ()=>{
+    const modals = document.querySelectorAll('.modal.active') 
+    modals.forEach(modal =>{
+        closeModal(modal)
+    })
+})
+
+closeModalButtons.forEach(button=>{
+    button.addEventListener('click', ()=>{
+        const modal = button.closest('.modal')
+        closeModal(modal)
+    }) 
+}) 
+function openModal(modal){
+    if (modal== null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+function closeModal(modal){
+    if (modal== null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
+}
+
+// show more-btn
+const showMore = document.querySelector('.btn-more');
+const productsLength = document.querySelectorAll('.card-show').length;
+let items = 6;
+
+showMore.addEventListener('click', ()=>{
+    items+=11;
+    const array = Array.from(document.querySelector('.cards-grid2').children);
+    const visItems = array.slice(0, items);
+
+    visItems.forEach(el => el.classList.add('is-visible'));
+    if (visItems.length = 16){
+        showMore.style.display='none';
+    }
+})
+
+// fetch('http://localhost:3000/users')
+//   .then(response => response.json())
+//   .then(users => {
+//     const usersContainer = document.getElementById('users-container');
+//     users.forEach(user => {
+//       const userCard = document.createElement('div');
+//       userCard.className = 'user-card';
+//      userCard.innerHTML = `
+//      <a href="product.html" class="card-name"><p>${user.username}</p></a>
+//      <p class="card-price">${user.surname}</p>`;
+  
+//       usersContainer.appendChild(userCard);
+//     });
+//   })
+//   .catch(error => {
+//     console.error('Ошибка при получении данных о пользователях:', error);
+//   });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем, есть ли уже кэшированные данные пользователей
+    const cachedUsers = localStorage.getItem('users');
+    if (cachedUsers) {
+      // Если данные есть, используем их
+      displayUsers(JSON.parse(cachedUsers));
+    } else {
+      // Если данных нет, делаем запрос к серверу
+      fetch('http://localhost:3000/users')
+        .then(response => response.json())
+        .then(users => {
+          // Сохраняем данные в кэш
+          localStorage.setItem('users', JSON.stringify(users));
+          // Используем данные для отображения
+          displayUsers(users);
+        })
+        .catch(error => {
+          console.error('Ошибка при получении данных о пользователях:', error);
+        });
+    }
+  });
+  
+  function displayUsers(users) {
+    document.querySelectorAll('.user-card').forEach(card => {
+      const index = parseInt(card.getAttribute('data-index'),  10);
+      const user = users[index];
+      if (user) {
+        card.innerHTML = `
+          <a href="product.html" class="card-name"><p>${user.username}</p></a>
+          <p class="card-price">${user.surname}</p>
+          <!-- Добавьте другие поля пользователя по мере необходимости -->
+        `;
+      } else {
+        card.innerHTML = '<p>User not found</p>';
+      }
+    });
+  }
+  
+    
+  const userCardTemplate = document.querySelector("[data-user-template]");
+  const userCardContainer = document.querySelector("[data-user-cards-container]");
+  const searchInput = document.querySelector("[data-search]");
+  
+  let users = []; // Исправлено на users
+  
+  searchInput.addEventListener("input", e => {
+      const value = e.target.value.toLowerCase(); // Добавлено преобразование в нижний регистр для корректной фильтрации
+      users.forEach(user => {
+          const isVisible = user.name.toLowerCase().includes(value) || user.surname.toLowerCase().includes(value); // Добавлено преобразование в нижний регистр для корректной фильтрации
+          user.element.classList.toggle("hide", !isVisible);
+      });
+  });
+  
+  fetch('http://localhost:3000/users')
+    .then(res => res.json())
+    .then(data => {
+      users = data.map(user => { // Исправлено на users
+        const cardItem = userCardTemplate.content.cloneNode(true).children[0];
+        const card_name = cardItem.querySelector(".card_name");
+        const card_price = cardItem.querySelector(".card_price");
+        card_name.textContent = user.username; // Исправлено на user.username
+        card_price.textContent = user.surname; // Исправлено на user.surname
+        userCardContainer.append(cardItem);
+        return {name: user.username, surname: user.surname, element: cardItem}; // Исправлено на user.username и user.surname
+      });
+    })
+    .catch(error => {
+      console.error('Ошибка при получении данных о пользователях:', error);
+    });
+  
+  //   userCard.innerHTML = `
+    //     <div class="user-info">
+    //       <h3 class="user-name">${user.username}</h3>
+    //       <p class="user-surname">${user.surname}</p>
+    //     </div>
+    //     <button class="view-profile">Просмотреть профиль</button>
+    //   `;
+
+
+    
+//   const { spawn } = require('child_process');
+
+// // Функция для запуска app.js
+// function startApp() {
+//   const app = spawn('node', ['app.js']);
+// }
+
+// // Запуск app.js
+// startApp();
