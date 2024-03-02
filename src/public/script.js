@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayUsers(JSON.parse(cachedUsers));
     } else {
       // Если данных нет, делаем запрос к серверу
-      fetch('database-1.c546eokicb94.eu-north-1.rds.amazonaws.com')
+      fetch('http://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/users')
         .then(response => response.json())
         .then(users => {
           // Сохраняем данные в кэш
@@ -312,7 +312,7 @@ const searchInput = document.querySelector("[data-product-search]");
       });
   });
   
-  fetch('database-1.c546eokicb94.eu-north-1.rds.amazonaws.com')
+  fetch('http://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com/products')
  .then(res => res.json())
  .then(data => {
     products = data.map(product => {
