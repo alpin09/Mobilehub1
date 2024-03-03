@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
       displayUsers(JSON.parse(cachedUsers));
     } else {
       // Если данных нет, делаем запрос к серверу
-      fetch('https://database-1.c546eokicb94.eu-north-1.rds.amazonaws.com')
+      fetch('https://mobilehub-w4eu.onrender.com/users')
         .then(response => response.json())
         .then(users => {
           // Сохраняем данные в кэш
