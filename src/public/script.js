@@ -1,8 +1,8 @@
-const icon = document.querySelector('.icon');
-const search_bar = document.querySelector('.search_bar');
-icon.onclick = function(){
-    search_bar.classList.toggle('active');
-}
+// const icon = document.querySelector('.icon');
+// const search_bar = document.querySelector('.search_bar');
+// icon.onclick = function(){
+//     search_bar.classList.toggle('active');
+// }
 document.addEventListener("click", e =>{
     const isDropdown = e.target.matches("[data-dropdown-button]")
     if (!isDropdown && e.target.closest('[data-dropdown]') !=null) return
